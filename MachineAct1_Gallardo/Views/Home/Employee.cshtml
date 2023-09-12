@@ -1,0 +1,113 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var FirstName = "Marshall Thomas Draico T.";
+    var LastName = "Gallardo";
+    DateTime Birthday = new DateTime(2002, 11, 24);
+    bool isTenured = true;
+    decimal Salaryperhour = 100000;
+    var email = "marshallthomas.gallardo.cics@ust.edu.ph";
+    var status = "";
+
+    int age = DateTime.Now.Year - Birthday.Year;
+
+    //Getting the email
+    string e = email;
+    string[] words = e.Split('@');
+    var Username = words[0];
+    var Domain = words[1];
+
+    //Computing the Salary
+    decimal SalaryPerDay = Salaryperhour * 8;
+    decimal SalaryPerMonth = SalaryPerDay * 30;
+
+    if (isTenured)
+    {
+        SalaryPerMonth += 500;
+        status = "Permanent";
+    }
+    else
+    {
+       
+        status = "Probationary";
+        SalaryPerMonth += 0;
+    }
+
+    //Calculate Sem grade and transmuted grade
+
+    int PreLimGrade =95;
+    int FinalGrade = 90;
+    decimal SemestralGrade = (PreLimGrade + FinalGrade) / 2.0M;
+    string TransmutedGrade = "";
+
+    if (SemestralGrade >= 90)
+    {
+        TransmutedGrade = "1.00";
+    }
+    else if (SemestralGrade >= 85)
+    {
+        TransmutedGrade = "1.25";
+    }
+    else if (SemestralGrade >= 80)
+    {
+        TransmutedGrade = "1.50";
+    }
+    else if (SemestralGrade >= 75)
+    {
+        TransmutedGrade = "1.75";
+    }
+    {
+
+    }
+
+
+
+
+
+
+}
+<p>Output A:</p>
+<p>I am @FirstName @LastName and @age years old.</p>
+
+<p>Output B:</p>
+<p>Email:@email</p>
+<p>Domain:@Domain</p>
+<p>Username:@Username</p>
+
+<p>Output C:</p>
+<p>FirstName: @FirstName @LastName</p>
+<p>Email:@email</p>
+<p>Status:@status</p>
+<p>Daily Salary:$@SalaryPerDay</p>
+<p>Monthly Salary:$@SalaryPerMonth</p>
+
+<p>Output D:</p>
+<table class="table"> 
+        <th>
+            Grade Computations
+        </th>
+       
+    <tbody>
+       <tr>
+           <th>Name:</th>
+           <td>@FirstName @LastName</td>
+       </tr>
+       <tr>
+           <th>PreLim Grade:</th>
+           <td>@PreLimGrade</td>
+       </tr>
+        <tr>
+            <th>Final Grade:</th>
+            <td>@FinalGrade</td>
+        </tr>
+        <tr>
+            <th>Semestral Grade:</th>
+            <td>@SemestralGrade</td>
+        </tr>
+        <tr>
+            <th>Transmuted Grade:</th>
+            <td>@TransmutedGrade</td>
+        </tr>
+    </tbody>
+</table>
